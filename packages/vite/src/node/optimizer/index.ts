@@ -633,7 +633,7 @@ export function runOptimizeDeps(
       disposeContext()
       return cancelledResult
     }
-
+    /*analysis: 构建执行阶段,此时会生成文件*/
     return context
       .rebuild()
       .then((result) => {
@@ -820,6 +820,7 @@ async function prepareEsbuildOptimizerRun(
   }
   plugins.push(esbuildDepPlugin(environment, flatIdDeps, external))
 
+  /*analysis: 对应文章中(历史版本vite)执行预编译 esbuild */
   const context = await esbuild.context({
     absWorkingDir: process.cwd(),
     entryPoints: Object.keys(flatIdDeps),
