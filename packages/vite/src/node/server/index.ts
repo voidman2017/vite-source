@@ -851,6 +851,10 @@ export async function _createServer(
     })
   }
 
+  /*analysis [hooks.configureServer]: 执行 configureServer 钩子函数。 vite 中内置的 configureServer, 位于 packages/vite/src/node/plugins/esbuild.ts
+      以及会执行自定义的 configureServer 钩子函数
+      这个钩子函数 （https://vite.dev/guide/api-plugin#configureserver）的作用是配置开发服务器
+  */
   // apply server configuration hooks from plugins
   const postHooks: ((() => void) | void)[] = []
   for (const hook of config.getSortedPluginHooks('configureServer')) {

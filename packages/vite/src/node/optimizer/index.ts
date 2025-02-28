@@ -633,7 +633,7 @@ export function runOptimizeDeps(
       disposeContext()
       return cancelledResult
     }
-    /*analysis: 构建执行阶段,此时会生成文件*/
+    /*analysis []: context是 packages/vite/src/node/optimizer/index.ts 中通过 esbuild 创建的。构建执行阶段,执行 esbuild.rebuild() 生成 ESM 文件*/
     return context
       .rebuild()
       .then((result) => {

@@ -1,14 +1,21 @@
 const esbuild = require('esbuild')
 
 async function build() {
-  const context = await esbuild.context({
-    entryPoints: ['src/index.js'],
+  const contextEsm = await esbuild.context({
+    entryPoints: ['lodash-es'],
     bundle: true,
-    outfile: 'dist/bundle.js',
+    outdir: 'dist-esm',
+    format: 'esm',
   })
-  const result = await context.rebuild()
+  await contextEsm.rebuild()
 
-  console.log(result)
+  const contextCjs = await esbuild.context({
+    entryPoints: ['lodash-es'],
+    bundle: true,
+    outdir: 'dist-cjs',
+    format: 'cjs',
+  })
+  await contextCjs.rebuild()
 }
 
 build()

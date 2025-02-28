@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { myPlugin } from './hooks'
 
 // 基础配置
 export default defineConfig({
@@ -20,6 +21,7 @@ export default defineConfig({
   plugins: [
     // 这里可以添加需要的插件，例如：
     // react()  // 如果使用React
+    myPlugin,
   ],
 
   // 环境变量配置

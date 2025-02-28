@@ -536,7 +536,17 @@ importers:
         specifier: ^0.2.12
         version: 0.2.12
 
-  playground/basic: {}
+  playground/basic:
+    dependencies:
+      esbuild:
+        specifier: ^0.25.0
+        version: 0.25.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
 
   playground/build-old: {}
 
